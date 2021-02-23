@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+<head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<script>
+
+function workout() {
+    goToGym();
+    var goToGym = function (){
+        console.log('Workout in Gym A');
+    }
+    return;
+    function goToGym() {
+        console.log('Workout in Gym B');
+    }
+}
+
+workout();
+
+</script>
 <body>
     
 </body>
-<script>
-    
-function User (name, interests) {
-    this.name = name;
-    this.interests = interests;
-}
-
-User.prototype.greeting = function () {
-    console.log('Hi, I\'m ' + this.name + ' .');
-}
-
-console.log(User.constructor === Function);
-
-
-
-</script>
 </html>
