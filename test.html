@@ -4,37 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <title>타이핑 게임</title>
 </head>
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <body>
-    <div id="app">
-        {{ message }}
+    <div class="header">
+        <h1>타이핑 마스터!!!</h1>
     </div>
-    <div id="app-2">
-        <span v-bind:title="message">
-            내 위에 마우스를 올려보아요
-        </span>
+    <div class="word-display">
+        Hello
     </div>
-    <div id="app-3">
-        <p v-if="seen">
-            이제 나를 볼 수 있어요.
-        </p>
+    <div class="word-input-box">
+        <input type="text" class="word-input" />
     </div>
+    <div class="game-info">
+        <div>
+            남은시간 : <span class="time">0</span>초
+        </div>
+        <div>
+            획득점수 : <span class="score">0</span>점
+        </div>
+    </div>
+    <button class="button loading">게임을 불러오는 중</button>
+    <script src="js/main.js"></script>
 </body>
-<script>
-
-var app = new Vue({
-    el: '#app',
-    data: {
-        message: '안녕하세요 Vue!'
-    }
-})
-var app2 = new Vue({
-  el: '#app-2',
-  data: {
-    message: '이 페이지는 ' + new Date() + ' 에 로드 되었습니다'
-  }
-})
-</script>
 </html>
