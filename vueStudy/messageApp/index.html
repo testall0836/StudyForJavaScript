@@ -11,12 +11,14 @@
         <ul>
             <li v-for="message in messages">
                 {{ message.text }} - {{ message.createdAt }}
+                <button @click="deleteMessage(message)">X</button>
             </li>
         </ul>
         <form v-on:submit.prevent="addMessage">
             <textarea v-model="newMessage" placeholder="Leave a message">
             </textarea>
-            <div><button type="submit"></button></div>
+            <div><button v-bind:disabled="messages.length >= 10 || newMessage.length > 10"
+                type="submit">Add</button></div>
         </form>
     </div>
 
@@ -32,13 +34,15 @@
             },
             methods: {
                 addMessage (event) {
-                    console.log('>>' + this.newMessage);
                     if (!this.newMessage) { 
                         return; 
                     }
                     this.messages.push({
                         text: this.newMessage, createdAt: new Date()});
-                        this.newMessage = ''; 
+                        this.newMessage = '';
+                },
+                deleteMessage (message) {
+                    this.messages.splice(this.messages.indexOf(message), 1)
                 }
             }
         })
