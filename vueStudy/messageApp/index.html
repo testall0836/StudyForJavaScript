@@ -7,13 +7,8 @@
     <title>messages App</title>
 </head>
 <body>
-    <div id="app">
-        <ul>
-            <li v-for="message in messages">
-                {{ message.text }} - {{ message.createdAt }}
-                <button @click="deleteMessage(message)">X</button>
-            </li>
-        </ul>
+    <div id="app" v-cloak>
+        <message-list :items="messages" @delete="deleteMessage"></message-list>
         <form v-on:submit.prevent="addMessage">
             <textarea v-model="newMessage" placeholder="Leave a message">
             </textarea>
@@ -24,13 +19,17 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script>
+    <script type="module">
+        import MessageList from './components/MessageList.js';
 
         let vm = new Vue({
             el: '#app',
             data: {
                 messages: [],
                 newMessage: ''
+            },
+            components: {
+                MessageList
             },
             methods: {
                 addMessage (event) {
@@ -54,7 +53,7 @@
                     }
                 }
             }
-        })
+        });
 
     </script>
     
