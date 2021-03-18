@@ -7,13 +7,18 @@
     <title>messages App</title>
 </head>
 <body>
-    <div id="app" v-cloak>
-        <message-list :items="messages" @delete="deleteMessage"></message-list>
+    <div id="app">
+        <ul>
+            <li v-for="message in messages">
+                {{ message.text }} - {{ message.createdAt }}
+            </li>
+        </ul>
         <form v-on:submit.prevent="addMessage">
             <textarea v-model="newMessage" placeholder="Leave a message">
             </textarea>
-            <div><button :disabled="disabledBtn"
-                type="submit">Add</button></div>
+            <div>
+                <button type="submit">Add</button>
+            </div>
         </form>
     </div>
 
@@ -25,9 +30,6 @@
             data: {
                 messages: [],
                 newMessage: ''
-            },
-            components: {
-                MessageList
             },
             methods: {
                 addMessage (event) {
