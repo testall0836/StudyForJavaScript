@@ -24,38 +24,13 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
-
         let vm = new Vue({
             el: '#app',
             data: {
                 messages: [],
                 newMessage: ''
-            },
-            methods: {
-                addMessage (event) {
-                    if (!this.newMessage) { 
-                        return; 
-                    }
-                    console.log(this.message);
-                    this.messages.push({
-                        text: this.newMessage, createdAt: new Date()});
-                        this.newMessage = '';
-                },
-                deleteMessage (message) {
-                    this.messages.splice(this.messages.indexOf(message), 1)
-                }
-            },
-            computed: {
-                disabledBtn () {
-                    if(this.messages.length >= 10 || this.newMessage.length >= 50) {
-                        return true
-                    } else {
-                        return false
-                    }
-                }
             }
         });
-
     </script>
     
 </body>
