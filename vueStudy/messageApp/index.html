@@ -11,6 +11,7 @@
         <ul>
             <li v-for="message in messages">
                 {{ message.text }} - {{ message.createdAt }}
+                <button v-on:click="deleteMessage">X</button>
             </li>
         </ul>
         <form v-on:submit.prevent="addMessage">
@@ -38,7 +39,7 @@
                     this.newMessage = '';
                 },
                 deleteMessage () {
-                    
+                    console.log('흐흐흐');
                 }
             }
         });
